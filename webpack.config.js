@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   devtool: (process.env.NODE_ENV === 'production') ? 'source-map' : 'cheap-eval-source-map',
@@ -46,5 +47,9 @@ module.exports = {
     }),
 
     new ExtractTextPlugin('[name]_[contenthash].css'),
+
+    new CopyWebpackPlugin([
+      { from: './sounds', to: 'sounds' },
+    ]),
   ],
 };
