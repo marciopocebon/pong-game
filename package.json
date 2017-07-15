@@ -1,0 +1,42 @@
+{
+  "name": "pong-game",
+  "version": "1.0.0",
+  "description": "Just a pong game for study purposes.",
+  "main": "index.js",
+  "scripts": {
+    "start": "$(npm bin)/webpack-dev-server --open --hot --inline",
+    "build": "NODE_ENV='production' $(npm bin)/webpack -p",
+    "lint": "$(npm bin)/eslint src/**",
+    "deploy": "$(npm bin)/gh-pages-deploy"
+  },
+  "keywords": [
+    "js",
+    "webpack",
+    "games",
+    "pong"
+  ],
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "prep": [
+      "build"
+    ]
+  },
+  "author": "Willian Justen <willianjustenqui@gmail.com> (https://willianjusten.com.br/)",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.4",
+    "eslint": "^4.2.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "gh-pages-deploy": "^0.4.2",
+    "html-webpack-plugin": "^2.29.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.2.0",
+    "webpack-dev-server": "^2.5.1"
+  }
+}
