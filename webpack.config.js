@@ -49,7 +49,7 @@ module.exports = {
     new ExtractTextPlugin('[name]_[contenthash].css'),
 
     new CopyWebpackPlugin([
-      { from: './sounds', to: 'sounds' },
+      { from: './src/sounds', to: 'sounds' },
     ]),
   ],
 };

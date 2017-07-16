@@ -4,6 +4,9 @@ const SCREEN_WIDTH = document.body.clientWidth;
 const SCREEN_HEIGHT = document.body.clientHeight;
 const SCALE = (SCREEN_WIDTH > SCREEN_HEIGHT) ? SCREEN_HEIGHT : SCREEN_WIDTH;
 
+const pingAudio = new Audio('../sounds/ping.ogg');
+const pongAudio = new Audio('../sounds/pong.ogg');
+
 class Vec {
   constructor(x = 0, y = 0) {
     this.x = x;
@@ -64,7 +67,7 @@ class Pong {
     this.canvas = canvas;
     this.context = canvas.getContext('2d');
 
-    this.initialSpeed = 400;
+    this.initialSpeed = 600;
 
     this.ball = new Ball();
 
@@ -129,6 +132,7 @@ class Pong {
       const len = ball.vel.len;
       ball.vel.y += player.vel.y * 0.2;
       ball.vel.len = len;
+      pongAudio.play();
     }
   }
 
@@ -193,6 +197,7 @@ class Pong {
     if (ball.vel.y < 0 && ball.top < 0 ||
             ball.vel.y > 0 && ball.bottom > cvs.height) {
       ball.vel.y = -ball.vel.y;
+      pingAudio.play();
     }
 
     this.players[1].pos.y = ball.pos.y;
