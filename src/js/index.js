@@ -4,8 +4,8 @@ const SCREEN_WIDTH = document.body.clientWidth;
 const SCREEN_HEIGHT = document.body.clientHeight;
 const SCALE = (SCREEN_WIDTH > SCREEN_HEIGHT) ? SCREEN_HEIGHT : SCREEN_WIDTH;
 
-const pingAudio = new Audio('../sounds/ping.ogg');
-const pongAudio = new Audio('../sounds/pong.ogg');
+const pingAudio = new Audio('./sounds/ping.ogg');
+const pongAudio = new Audio('./sounds/pong.ogg');
 
 class Vec {
   constructor(x = 0, y = 0) {
